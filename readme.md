@@ -1,30 +1,33 @@
-# Laravel PHP Framework
+##Install
+- create project folder ex. laravel-tz
+- $ cd laravel-tz
+- $ rm -rf laradoc
+- $ git clone https://github.com/skvoz/laravel-event-list.git .
+- install composer global
+- $ comopser install
+- create .env file in root , copy data from example
+- install docker
+- git submodule add https://github.com/LaraDock/laradock.git laradoc
+- docker-compose up -d nginx php-fpm postgres ( if error change port nginx: 80 to 801, 5432 on pqstgres: 5433 in docker-compose.yml)
+- look at container list $ docker ps
+- go to main container $ docker exec -it <laradoc_workspace id > bash
+- in docker container 
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## eample .env
+APP_ENV=local
+APP_KEY=base64:yDs3MexbK/ANkCSrUr/oIBmKDDcpIcsX6wUA/qPJA1k=
+APP_DEBUG=true
+APP_LOG_LEVEL=debug
+APP_URL=http://localhost
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+DB_CONNECTION=pgsql
+DB_HOST=172.21.0.4
+DB_PORT=5433
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
-## Official Documentation
-
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
 
 //todo appzcoder/crud-generator 
 //todo https://github.com/laravel-backpack 
