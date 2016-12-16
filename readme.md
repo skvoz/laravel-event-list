@@ -14,7 +14,8 @@
 - in docker container  $ php artisan migrate
 - in docker container  $ php artisan db:seed
 
-## eample .env
+## example .env
+```
 APP_ENV=local
 APP_KEY=base64:yDs3MexbK/ANkCSrUr/oIBmKDDcpIcsX6wUA/qPJA1k=
 APP_DEBUG=true
@@ -27,7 +28,7 @@ DB_PORT=5433
 DB_DATABASE=homestead
 DB_USERNAME=homestead
 DB_PASSWORD=secret
-
+```
 ##Interests git repo
  - appzcoder/crud-generator 
  - https://github.com/laravel-backpack 
