@@ -19,11 +19,15 @@
                         &nbsp;<a href="{{ url('/admin/event') }}"> events </a>
                     </div>
                     <div class="panel-body">
+                        <a href="{{url('/admin/event/create')}}" class="btn btn-primary">add event</a>
+                        <a href="{{url('/admin/event/list')}}" class="btn btn-primary">event list</a>
+                        <a href="{{url('/admin/event/assign')}}" class="btn btn-primary">assign event</a>
 
                         <p>event name: {{$event->name}}</p>
                         <p>event description: {{$event->description}}</p>
 
                         <a href="{{ URL::previous() }}" class="btn btn-success">back</a>
+                        <a href="{{ url('/admin/event/assign-delete', ['id' => $event->id])}}" class="btn btn-danger">delete</a>
                     </div>
                 </div>
             </div>

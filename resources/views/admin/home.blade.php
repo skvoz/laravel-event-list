@@ -13,8 +13,9 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Admin area
+                        Admin area: user list
                         &nbsp;<a href="{{ url('/home') }}"> home </a>
+                        &nbsp;<a href="{{ url('/admin') }}"> users </a>
                         &nbsp;<a href="{{ url('/admin/event') }}"> events </a>
                     </div>
                     <div class="panel-body">
@@ -30,7 +31,7 @@
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>
-                                        <a href="{{url('/admin/user/update', [ 'id' => $user->id])}}">update</a>
+                                        <a href="{{url('/admin/user/edit', [ 'id' => $user->id])}}">update</a>
                                         <a href="{{url('/admin/user/delete', [ 'id' => $user->id])}}">delete</a>
                                     </td>
                                 </tr>

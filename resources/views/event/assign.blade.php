@@ -19,6 +19,12 @@
                         &nbsp;<a href="{{ url('/admin/event') }}"> events </a>
                     </div>
                     <div class="panel-body">
+                        <a href="{{url('/admin/event/create')}}" class="btn btn-primary">add event</a>
+                        <a href="{{url('/admin/event/list')}}" class="btn btn-primary">event list</a>
+                        <a href="{{url('/admin/event/assign')}}" class="btn btn-primary">assign event</a>
+                        <br/>
+                        <br/>
+
                         <form class="form-horizontal" role="form" method="POST"
                               action="{{ url('/admin/event/assign-store') }}">
                             {{ csrf_field() }}

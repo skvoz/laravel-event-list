@@ -13,9 +13,9 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Admin area: events page
+                        Admin area: create event page
                         &nbsp;<a href="{{ url('/home') }}"> home </a>
-                        &nbsp;<a href="{{ url('/admin') }}"> users </a>
+                        &nbsp;<a href="{{ url('/admin') }}"> user </a>
                         &nbsp;<a href="{{ url('/admin/event') }}"> events </a>
                     </div>
                     <div class="panel-body">
@@ -24,21 +24,15 @@
                         <a href="{{url('/admin/event/assign')}}" class="btn btn-primary">assign event</a>
                         <br/>
                         <br/>
-                        @if($events->count() > 0)
-                            <table class="table">
-                                <th>name</th>
-                                <th>description</th>
-                                @foreach($events as $event)
-                                    <tr>
-                                        <td>{{$event->name}}</td>
-                                        <td>{{$event->description}}</td>
-                                    </tr>
-                                @endforeach
-                            </table>
-                        @else
-                            <p>empty events</p>
-                        @endif
 
+                        {!! Form::open([
+                        'name' => 'frm',
+                        'method' => 'post',
+                        "url" => '/admin/event/store',
+                        "id"=>"frm",
+                        "class"=>"form-horizontal"]) !!}
+                        @include("event._form")
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

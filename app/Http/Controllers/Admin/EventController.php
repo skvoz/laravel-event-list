@@ -7,6 +7,7 @@ use App\Models\CustomEvent;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class EventController extends Controller
 {
@@ -69,17 +70,12 @@ class EventController extends Controller
 
     public function create(Request $request)
     {
-        $event = $this->event;
-
-        return view ('event.update', [
-            'event' => $event,
-        ]);
+        return view ('event.create');
 
     }
 
     public function update(Request $request, $id)
     {
-
         $user = $this->user->findOrFail($id);
 
         return view('admin.update')->withUser($user);
@@ -89,12 +85,18 @@ class EventController extends Controller
     {
         $input = $request->except('_token');
 
-        $event = $id ? $this->event->firstOrCreate(['id' => $id]) : $this->event;
+        $event = $this->event;
 
-        $this->validate($request, [
+        $validator = Validator::make($input, [
             'name' => 'required|max:255|min:4',
             'description' => 'required|max:1000'
         ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->action('Admin\EventController@create')
+                ->withErrors($validator);
+        }
 
         $event->fill($input)->save();
 
@@ -147,6 +149,17 @@ class EventController extends Controller
         $this->eventsUser->fill($input)->save();
 
         $request->session()->flash('messages', 'Event assign successful!');
+
+        return redirect()->action('Admin\EventController@index');
+    }
+
+    public function assignDelete(Request $request, $id)
+    {
+        $event = $this->eventsUser->findOrFail($id);
+
+        $event->delete();
+
+        $request->session()->flash('messages', 'User event drop successful!');
 
         return redirect()->action('Admin\EventController@index');
     }
